@@ -4,12 +4,14 @@
       dark
       class="bg-heroBrown h-14 flex flex-row items-center justify-between bar-stu"
     >
-      <div class="flex flex-row gap-x-1 items-center justify-start">
+      <div class="flex flex-row gap-x-3 items-center justify-start">
         <q-btn dense round flat icon="menu" size="md" @click="open()" />
 
-        <p class="text-lg">Northern Cultural & Creative Festival</p>
+        <p class="text-lg sm:text-sm md:text-base">
+          Northern Cultural & Creative Festival
+        </p>
       </div>
-      <nav class="flex flex-row gap-x-3 text-sm">
+      <nav class="flex flex-row gap-x-3 text-sm sm:hidden md:flex lg:flex">
         <RouterLink to="#">Exhibition</RouterLink>
         <RouterLink to="#">Tickets</RouterLink>
         <RouterLink to="#">News</RouterLink>
@@ -21,9 +23,15 @@
         class="h-full w-72 bg-white flex flex-col items-start justify-start gap-y-2 overflow-y-scroll p-2"
       >
         <q-btn dense round flat icon="menu" size="md" @click="close()" />
-        <div class="flex flex-col gap-y-2 mt-2">
-          <p class="" v-for="(item, index) in sideBarOptions" :key="index">
-            {{ item }}
+        <div class="flex flex-col gap-y-2 mt-2 pl-2 w-full">
+          <p
+            class="flex flex-row items-center hover:bg-fadedBlue w-full p-2 rounded-s-full cursor-pointer"
+            v-for="(item, index) in sideBarOptions"
+            @click="item.onClick"
+            :key="index"
+          >
+            <q-icon class="text-textGrey mr-3" :name="item.value" />
+            {{ item.name }}
           </p>
         </div>
       </div>
@@ -36,6 +44,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 const dialog = ref(false);
 
 const open = () => {
@@ -46,13 +55,25 @@ const close = () => {
   dialog.value = false;
 };
 
+const router = useRouter();
+
+const goToAbout = () => {
+  router.push({ path: "/day-one" });
+};
+
 const sideBarOptions = [
-  "Home",
-  "Explore",
-  "Exhibition",
-  "Tickets",
-  "News",
-  "Stories",
+  { name: "Home", value: "home" },
+  { name: "Explore", value: "explore" },
+  { name: "Exhibition", value: "collections" },
+  { name: "Tickets", value: "confirmation_number" },
+  { name: "News", value: "feed" },
+  { name: "Stories", value: "auto_stories" },
+  { name: "Day One", value: "auto_stories", onClick: goToAbout },
+  { name: "Day Two", value: "auto_stories" },
+  { name: "Day Three", value: "auto_stories" },
+  { name: "Day Four", value: "auto_stories" },
+  { name: "Day Five", value: "auto_stories" },
+  { name: "Day Six", value: "auto_stories" },
 ];
 </script>
 
