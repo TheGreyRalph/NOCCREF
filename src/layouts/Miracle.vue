@@ -61,8 +61,12 @@ const goToAbout = () => {
   router.push({ path: "/day-one" });
 };
 
+const goToHome = () => {
+  router.push({ path: "/" });
+};
+
 const sideBarOptions = [
-  { name: "Home", value: "home" },
+  { name: "Home", value: "home", onClick: goToHome },
   { name: "Explore", value: "explore" },
   { name: "Exhibition", value: "collections" },
   { name: "Tickets", value: "confirmation_number" },

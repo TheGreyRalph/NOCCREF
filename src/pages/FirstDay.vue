@@ -39,9 +39,7 @@
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
             accusamus et eos nesciunt iste illo!
           </p>
-          <button class="border border-black border-solid py-3 px-4 rounded-md">
-            Enroll Now
-          </button>
+          <button class="py-3 px-4 rounded-md border border-solid border-black">Enroll Now</button>
         </div>
         <div class="flex items-end mr-9">
           <swiper
@@ -87,6 +85,10 @@
 
 <script setup>
 import LandView from "../assets/noccref/DSC_0718 fade.png";
+import DragOne from "../assets/noccref/121.png";
+import DragTwo from "../assets/noccref/DSC_0093.jpg";
+import DragThree from "../assets/noccref/DSC_0458 (5).jpg";
+import DragFour from "../assets/noccref/DSC_0713.jpg";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper/modules";
 
@@ -99,18 +101,12 @@ import "swiper/css/navigation";
 import { ref } from "vue";
 const modules = ref([EffectCards]);
 const slideShowModules = ref([Autoplay, Pagination, Navigation]);
-const carouselImages = ref([
-  "./src/assets/noccref/121.png",
-  "./src/assets/noccref/DSC_0093.JPG",
-  "./src/assets/noccref/DSC_0458 (5).jpg",
-  "./src/assets/noccref/DSC_0713.jpg",
-  // "/assets/models.jpg",
-]);
+const carouselImages = ref([DragOne, DragTwo, DragThree, DragFour]);
 </script>
 
 <style lang="scss">
 .hero-entry {
-  background: url("./src/assets/noccref/Cultural Exchange.jpg") no-repeat center
+  background: url("../assets/noccref/Cultural Exchange.jpg") no-repeat center
     center/cover;
 }
 
