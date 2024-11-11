@@ -32,7 +32,7 @@ const { src, alt, imgClass, ...otherProps } = props;
 }
 
 .zoom-effect img {
-  transition: transform 0.3s ease;
+  transition: transform 0.8s ease;
   object-fit: cover;
 }
 

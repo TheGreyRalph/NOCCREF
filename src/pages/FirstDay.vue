@@ -32,14 +32,45 @@
       </div>
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
+      <div class="px-[80px] mt-10 flex flex-col gap-y-3">
+        <p class="text-2xl font-semibold">What to expect?</p>
+        <div class="flex flex-row gap-4">
+          <span class="zoom-effect flex-1">
+            <ImageView
+              :src="Rmd"
+              alt="highlight-imgs"
+              class="flex-1 w-full h-[200px] !object-fit rounded-lg"
+            />
+          </span>
+          <span class="zoom-effect flex-1">
+            <ImageView
+              :src="HorseRider"
+              alt="highlight-imgs"
+              class="flex-1 w-full h-[200px] object-cover rounded-lg"
+            />
+          </span>
+          <span class="zoom-effect flex-1">
+            <ImageView
+              :src="DancingLady"
+              alt="highlight-imgs"
+              class="flex-1 w-full h-[200px] !object-fit rounded-lg"
+            />
+          </span>
+        </div>
+      </div>
+    </q-intersection>
+
+    <q-intersection :transition-duration="600" transition="scale" once>
       <div class="mt-10 px-[80px] flex flex-row items-center justify-between">
-        <div class="flex flex-col gap-y-3 w-[33%]">
+        <div class="flex flex-col gap-y-3 w-[43%]">
           <p>Explore the northern culture</p>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
             accusamus et eos nesciunt iste illo!
           </p>
-          <button class="py-3 px-4 rounded-md border border-solid border-black">Enroll Now</button>
+          <button class="py-3 px-4 rounded-md border border-solid border-black">
+            Enroll Now
+          </button>
         </div>
         <div class="flex items-end mr-9">
           <swiper
@@ -55,40 +86,44 @@
         </div>
       </div>
     </q-intersection>
-    <!-- <div class="mt-11">
-      <swiper
-        :spaceBetween="30"
-        :centeredSlides="true"
-        :autoplay="{
-          delay: 2500,
-          disableOnInteraction: false,
-        }"
-        :pagination="{
-          clickable: true,
-        }"
-        :navigation="true"
-        :modules="slideShowModules"
-        class="w-full"
+    <q-intersection :transition-duration="600" transition="scale" once>
+      <div
+        class="mt-10 mx-[80px] flex flex-row gap-x-11 items-start justify-start h-[400px] bg-lightGrayDay rounded-lg p-10"
       >
-        <swiper-slide>Slide 1</swiper-slide>
-        <swiper-slide>Slide 2</swiper-slide
-        ><swiper-slide>Slide 3</swiper-slide>
-        <swiper-slide>Slide 4</swiper-slide
-        ><swiper-slide>Slide 5</swiper-slide>
-        <swiper-slide>Slide 6</swiper-slide
-        ><swiper-slide>Slide 7</swiper-slide>
-        <swiper-slide>Slide 8</swiper-slide><swiper-slide>Slide 9</swiper-slide>
-      </swiper>
-    </div> -->
+        <div class="basis-[60%]">
+          <span class="zoom-effect flex-1 h-full">
+            <ImageView
+              :src="NorthLeaders"
+              alt="highlight-imgs"
+              class="flex-1 w-full h-[320px] !object-fit rounded-lg bg-left-top"
+            />
+          </span>
+        </div>
+        <div class="basis-[35%]">
+          <h1>Lorem ipsum dolor sit amet consectetur.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+            deserunt, optio qui facere assumenda explicabo in odit ipsa vero
+            quasi quod consequatur rerum velit voluptatibus adipisci eos
+            accusantium placeat rem.
+          </p>
+        </div>
+      </div>
+    </q-intersection>
   </div>
 </template>
 
 <script setup>
 import LandView from "../assets/noccref/DSC_0718 fade.png";
+import ImageView from "../components/ImageView.vue";
 import DragOne from "../assets/noccref/121.png";
 import DragTwo from "../assets/noccref/DSC_0093.jpg";
 import DragThree from "../assets/noccref/DSC_0458 (5).jpg";
 import DragFour from "../assets/noccref/DSC_0713.jpg";
+import Rmd from "../assets/noccref/istockphoto-537311780-612x612.jpg";
+import HorseRider from "../assets/noccref/Kaduna_Centenary_IMG_5221.jpg";
+import DancingLady from "../assets/noccref/Kaduna_KADFEST_ 004_ IMG_M9A7433.jpg";
+import NorthLeaders from "../assets/noccref/DSC_0458 (5).jpg";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper/modules";
 
@@ -159,6 +194,7 @@ const carouselImages = ref([DragOne, DragTwo, DragThree, DragFour]);
 
 .swiper-slide:nth-child(9n) {
   background-color: rgb(218, 12, 218);
+  color: #d9dee2;
 }
 
 .swiper-slide:nth-child(10n) {

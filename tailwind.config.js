@@ -30,6 +30,7 @@ module.exports = {
       textGrey: "#80868b",
       textBlue: "#1a73e8",
       heroBrown: "#f3efec",
+      lightGrayDay: "#d9dee2",
     },
   },
   plugins: [],
