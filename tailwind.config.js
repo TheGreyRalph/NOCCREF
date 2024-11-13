@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       poppins: ['Poppins", sans-serif'],
+      dmSerif: ["dm-sans"],
     },
     screens: {
       sm: "200px",

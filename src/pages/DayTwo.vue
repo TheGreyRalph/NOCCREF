@@ -8,7 +8,7 @@
           class="flex h-full w-full text-white items-center justify-center bg-[#00000071]"
         >
           <div class="flex flex-col gap-y-4">
-            <p class="text-white text-4xl text-center">Opening Ceremony</p>
+            <p class="text-white text-4xl text-center">Creative Trainings</p>
             <p class="text-white">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
               nihil?
@@ -152,55 +152,26 @@
       </div>
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
-      <div
-        class="mt-10 mx-[80px] flex flex-row gap-x-11 items-start justify-start h-[400px] bg-lightGrayDay rounded-lg p-10"
-      >
-        <div class="basis-[60%]">
-          <span class="zoom-effect flex-1 h-full">
-            <ImageView
-              :src="NorthLeaders"
-              alt="highlight-imgs"
-              class="flex-1 w-full h-[320px] !object-fit rounded-lg bg-left-top"
-            />
-          </span>
-        </div>
-        <div class="basis-[35%]">
-          <h1>Lorem ipsum dolor sit amet consectetur.</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-            deserunt, optio qui facere assumenda explicabo in odit ipsa vero
-            quasi quod consequatur rerum velit voluptatibus adipisci eos
-            accusantium placeat rem.
-          </p>
-        </div>
-      </div>
-    </q-intersection>
-    <q-intersection :transition-duration="600" transition="scale" once>
-      <div class="px-20">
-        <q-timeline color="secondary">
+      <div class="px-20 mt-10">
+        <q-timeline color="secondary" layout="comfortable" side="right">
           <q-timeline-entry heading body="Timeline heading" />
           <q-timeline-entry
-            title="Event Title"
+            title="Professional film-training by Nollywood/Hollywood giants"
             subtitle="February 22, 1986"
             body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
           />
           <q-timeline-entry
-            title="Event Title"
+            title="Professional photography training by industry experts"
             subtitle="February 22, 1986"
             body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
           />
           <q-timeline-entry
-            title="Event Title"
+            title="Crafts and painting training by industry experts"
             subtitle="February 22, 1986"
             body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
           />
           <q-timeline-entry
-            title="Event Title"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
-          />
-          <q-timeline-entry
-            title="Event Title"
+            title="Training on 'Understanding the business of the creative industry' "
             subtitle="February 22, 1986"
             body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
           />
@@ -293,7 +264,7 @@ onMounted(() => {
 
 <style lang="scss">
 .hero-entry {
-  background: url("../assets/noccref/Cultural Exchange.jpg") no-repeat center
+  background: url("../assets/noccref/TF 2.jpeg") no-repeat center
     center/cover;
 }
 

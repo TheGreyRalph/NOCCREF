@@ -57,8 +57,16 @@ const close = () => {
 
 const router = useRouter();
 
-const goToAbout = () => {
+const goToDayOne = () => {
   router.push({ path: "/day-one" });
+};
+
+const goToDayTwo = () => {
+  router.push({ path: "/day-two" });
+};
+
+const goToDayThree = () => {
+  router.push({ path: "/day-three" });
 };
 
 const goToHome = () => {
@@ -72,9 +80,9 @@ const sideBarOptions = [
   { name: "Tickets", value: "confirmation_number" },
   { name: "News", value: "feed" },
   { name: "Stories", value: "auto_stories" },
-  { name: "Day One", value: "auto_stories", onClick: goToAbout },
-  { name: "Day Two", value: "auto_stories" },
-  { name: "Day Three", value: "auto_stories" },
+  { name: "Day One", value: "auto_stories", onClick: goToDayOne },
+  { name: "Day Two", value: "auto_stories", onClick: goToDayTwo },
+  { name: "Day Three", value: "auto_stories", onClick: goToDayThree },
   { name: "Day Four", value: "auto_stories" },
   { name: "Day Five", value: "auto_stories" },
   { name: "Day Six", value: "auto_stories" },

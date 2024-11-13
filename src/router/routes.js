@@ -9,6 +9,16 @@ const routes = [
     component: () => import("layouts/Miracle.vue"),
     children: [{ path: "", component: () => import("pages/FirstDay.vue") }],
   },
+  {
+    path: "/day-two",
+    component: () => import("layouts/Miracle.vue"),
+    children: [{ path: "", component: () => import("src/pages/DayTwo.vue") }],
+  },
+  {
+    path: "/day-three",
+    component: () => import("layouts/Miracle.vue"),
+    children: [{ path: "", component: () => import("src/pages/DayThree.vue") }],
+  },
 
   // Always leave this as last one,
   // but you can also remove it

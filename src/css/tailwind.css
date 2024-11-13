@@ -4,10 +4,17 @@
 
 @layer base {
   @font-face {
-    font-family: 'Poppins", sans-serif';
+    font-family: 'Poppins, sans-serif';
     font-style: normal;
     font-weight: 400;
     font-display: swap;
     src: url(/src/fonts/Poppins/Poppins-Regular.ttf) format("ttf");
+  }
+  @font-face {
+    font-family: "dm-serif";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/src/fonts/DM_Serif/DMSerifText-Italic.ttf) format("ttf");
   }
 }
