@@ -18,13 +18,14 @@
           </svg>
         </div>
         <div class="flex-1 flex flex-col gap-y-2">
-          <p class="text-4xl font-semibold sm:text-sm minLg:text-4xl">
-            Lorem ipsum dolor sit amet.
+          <p
+            class="text-4xl font-semibold sm:text-sm minLg:text-4xl font-dmSerif"
+          >
+            Diverse cultural heritage of Nothern Nigeria.
           </p>
           <p class="w-[70%] sm:text-sm md:w-[90%] minLg:block">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-            natus ut facere veritatis tempore dolor earum saepe ad numquam
-            aperiam? Necessitatibus nostrum facere beatae non.
+            The Northern Cultural and Creative Festival (NOCCREF) is poised to
+            be the biggest creative and cultural event ever witnessed in Africa.
           </p>
         </div>
         <img
@@ -39,18 +40,19 @@
         class="row sm:column md:column minLg:row px-16 py-5 sm:py-12 sm:bg-heroBrown lg:bg-transparent"
       >
         <div class="col flex flex-col gap-y-5">
-          <p class="text-sm">
+          <p class="text-sm tracking-wide">
             <q-icon class="text-textGrey" name="calendar_today" />
-            Today in history
+            Executive summary
           </p>
-          <p
-            class="text-2xl font-light w-[60%] sm:text-sm md:text-xl minLg:text-text2xl sm:w-[90%] minLg:w-[60%]"
-          >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          <p class="text-sm text-textGrey w-[80%] xs:w-full minLg:w-[60%]">
+            The Northern Cultural and Creative Festival (NOCCREF) is a week-long
+            cultural and creative annual event that aims to showcase and promote
+            the rich cultural heritage across the Northern part of Nigeria.
           </p>
           <p class="text-sm text-textGrey w-[80%] sm:w-full minLg:w-[60%]">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis
-            dicta ipsa rerum alias iure facilis aspernatur natus id aliquid cum.
+            The event is the brainchild of Rabitz Studios Limited, a Creative
+            Media Company based in Kaduna, Northern Nigeria in collabora-tion
+            with the Zazzau Emirate. Kaduna is the pilot state.
           </p>
           <button class="text-textBlue text-left">Learn more</button>
         </div>
@@ -93,9 +95,51 @@
         </div>
       </div>
     </q-intersection>
+    <q-intersection
+      :transition-duration="600"
+      transition="scale"
+      once
+      class="mt-12"
+    >
+      <p class="text-4xl font-semibold w-full text-center font-dmSerif mb-5">Objectives</p>
+      <div class="wide-container h-[500px] px-12">
+        <div
+          v-for="(image, index) in noccref_obj"
+          :key="index"
+          @mouseenter="setHoveredImageIndex(index)"
+          :style="getHoveredStyles(index)"
+          class="flex-image relative zoom-effect"
+        >
+          <img
+            :src="image.image"
+            alt="hover-image"
+            class="flex-image h-full w-full object-cover rounded-lg"
+          />
+          <div
+            :class="[
+              'absolute top-0 left-0 flex justify-end flex-col gap-y-3 h-full w-full p-3 z-[9999]',
+            ]"
+          >
+            <p
+              v-show="getHoveredStyles(index).width === '300px'"
+              class="text-white text-lg font-semibold"
+            >
+              {{ image.description }}
+            </p>
+            <p
+              :class="[
+                'flex items-center justify-center rounded-full text-white border border-solid border-white w-10 h-10 font-semibold bg-[#00000071]',
+              ]"
+            >
+              {{ index + 1 }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
-      <div class="flex justify-center">
-        <p class="text-4xl font-light">Continue your Journey</p>
+      <div class="flex justify-center mt-10">
+        <p class="text-4xl font-semibold w-full text-center font-dmSerif">Continue your Journey</p>
         <div class="container mx-auto flex justify-center items-center my-12">
           <div
             v-for="(image, index) in images"
@@ -117,83 +161,180 @@
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
       <div class="px-12 flex flex-col gap-y-2 mt-8">
-        <p class="text-4xl font-light text-center">What's new?</p>
+        <p class="text-4xl font-semibold w-full text-center font-dmSerif">What's new?</p>
         <p class="text-center text-sm">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae,
-          nisi!
+          Fostering sector specific festivals and investment opportunities
         </p>
         <div class="flex flex-row gap-x-5 no-wrap h-[420px]">
           <div class="flex flex-col basis-[70%] gap-y-4 no-wrap">
             <div class="flex flex-row gap-x-4 no-wrap h-[210px]">
               <div class="w-[70%] h-[210px]">
-                <div class="zoom-effect">
+                <div class="zoom-effect relative">
                   <ImageView
-                    :src="LandTribe"
+                    :src="FashionFestival"
                     alt="grid-media"
                     imgClass="w-full h-full object-cover rounded-lg"
                   />
+                  <div
+                    class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
+                  >
+                    <p
+                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                    >
+                      Fashion Festival
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="w-[30%] h-[210px]">
-                <div class="zoom-effect">
+                <div class="zoom-effect relative">
                   <ImageView
-                    :src="TraditionalShirts"
+                    :src="FilmFestival"
                     alt="grid-media"
                     imgClass="w-full h-full object-cover rounded-lg"
                   />
+                  <div
+                    class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
+                  >
+                    <p
+                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                    >
+                      Film Festival
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="flex flex-row gap-x-4 no-wrap h-[210px]">
               <div class="w-[30%] h-[210px]">
-                <div class="zoom-effect">
+                <div class="zoom-effect relative">
                   <ImageView
-                    :src="TraditionalShirts"
+                    :src="MusicFestival"
                     alt="grid-media"
                     imgClass="w-full h-full object-cover rounded-lg"
                   />
+                  <div
+                    class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
+                  >
+                    <p
+                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                    >
+                      Music Festival
+                    </p>
+                  </div>
                 </div>
               </div>
               <div class="w-[70%] h-full">
-                <div class="zoom-effect">
+                <div class="zoom-effect relative">
                   <ImageView
-                    :src="LandView"
+                    :src="FoodFestival"
                     alt="grid-media"
                     imgClass="w-full h-full object-cover rounded-lg"
                   />
+                  <div
+                    class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
+                  >
+                    <p
+                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                    >
+                      Food/Fusion Festival
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="basis-[30%]">
-            <div class="zoom-effect">
+            <div class="zoom-effect relative">
               <ImageView
-                :src="Drummer"
+                :src="SportFestival"
                 alt="grid-media"
                 imgClass="w-full h-full object-cover rounded-lg"
               />
+              <div
+                class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
+              >
+                <p
+                  class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                >
+                  Sports Festival
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </q-intersection>
+
     <q-intersection
       :transition-duration="600"
       transition="scale"
       once
-      class="mt-12"
+      class="mt-10 px-12 h-full bg-heroBrown py-5"
     >
-      <div class="wide-container h-[500px] px-12">
-        <ImageView
-          v-for="(image, index) in images"
-          :key="index"
-          :src="Models"
-          alt="hover-image"
-          imgClass="flex-image h-auto object-cover"
-        />
+      <div class="flex flex-col gap-y-3">
+        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
+          About
+        </p>
+        <div class="flex flex-row gap-x-7 items-center justify-center">
+          <q-card class="my-card w-[25%] h-[380px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p
+                class="text-xs text-textGrey text-justify tracking-wider leading-6"
+              >
+                The Northern Cultural and Creative Festival is poised to be the
+                biggest creative and cultural event ever witnessed in Africa,
+                with the aim of strengthening the Northern cultural and creative
+                ecosystem by providing a platform for the promotion and export
+                of Northern Nigerian heritage. The festival features a week-long
+                celebration of creativity, arts, and culture, with various
+                activities and events that highlight the rich cultural heritage
+                of the Northern region of Nigeria.
+              </p>
+            </q-card-section>
+          </q-card>
+          <q-card class="my-card w-[25%] h-[380px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p
+                class="text-xs text-textGrey text-justify tracking-wider leading-6"
+              >
+                The festival is inspired by the need to preserve, promote, and
+                showcase the diverse and rich cultural heritage of Northern
+                Nigeria. Over the years, the Northern region of Nigeria has been
+                blessed with a rich cultural heritage that is steeped in history
+                and tradition. From the ancient empires of Kanem-Bornu, Sokoto
+                Caliphate, the Hausa Kingdoms, to the remarkable Nok culture.
+              </p>
+            </q-card-section>
+          </q-card>
+          <q-card class="my-card w-[25%] h-[380px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p
+                class="text-xs text-textGrey text-justify tracking-wider leading-6"
+              >
+                The Northern Cultural and Creative Festival provides a unique
+                opportunity showcase and celebrate the diversity and richness of
+                Northern Nigerian culture to the rest of the world. The annual
+                festival is an avenue to promote tourism, generate revenue, and
+                create a platform for cultural exchange and diplomacy. It is an
+                event that celebrates the past, present and future of Northern
+                region, and seeks to inspire new generation of creatives and
+                cultural entrepreneurs.
+              </p>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </q-intersection>
-    <!-- <Slideshow /> -->
+
+    <q-intersection
+      :transition-duration="600"
+      transition="scale"
+      once
+      class="mt-10"
+    >
+      <SlideShow imgClass="!w-full !h-full !object-cover" />
+    </q-intersection>
   </div>
 </template>
 
@@ -203,10 +344,22 @@ import ImageView from "../components/ImageView.vue";
 import Slideshow from "../components/Slideshow.vue";
 import Drummer from "../assets/african-drummer.jpg";
 import Models from "../assets/models.jpg";
+import CulturalExchange from "../assets/noccref/Cultural Exchange.jpg";
+import Diversity from "../assets/noccref/dances.jpg";
+import InternetUsers from "../assets/noccref/internet-users.jpg";
+import Skills from "../assets/noccref/skilla.jpg";
+import Tourism from "../assets/noccref/Igabi_Maraba_Pottery_04_IMG_99211.jpg";
+import Peace from "../assets/noccref/Kano Sanusi.jpeg";
+import FoodFestival from "../assets/noccref/b102b3cf7ab61304af70092d768d35f3d31b8482-4032x2268.jpg";
+import FilmFestival from "../assets/noccref/camera-1867184_1280-1170x700.jpg";
+import MusicFestival from "../assets/noccref/Music 1.png";
+import FashionFestival from "../assets/noccref/NNCCFF.jpg";
+import SportFestival from "../assets/noccref/WhatsApp-Image-2023-10-03-at-06.34.55.jpeg";
 import TraditionalShirts from "../assets/tradtional-shirts.jpg";
 import DancingWomen from "../assets/dancing-women.jpg";
 import LandTribe from "../assets/land-tribe.jpg";
 import LandView from "../assets/land-view.jpg";
+import SlideShow from "../components/Slideshow.vue";
 
 const images = ref([
   "./src/assets/models.jpg",
@@ -219,11 +372,59 @@ const images = ref([
 const slide = ref(1);
 const autoplay = ref(true);
 
+const noccref_obj = [
+  {
+    image: CulturalExchange,
+    description: "Showcase the Richness of the Northern Nigerian Heritage",
+    color: "#318CE7",
+  },
+  {
+    image: Diversity,
+    description: "Promote Northern Nigerian Diversity and Opportunities",
+    color: "#6699CC",
+  },
+  {
+    image: InternetUsers,
+    description: "Enhance Social and Economic Growth for the Northern Region",
+    color: "#5072A7",
+  },
+  {
+    image: Skills,
+    description:
+      "Empower Northern Nigerian Youth with Skills and Opportunities",
+      color: "#0039a6"
+  },
+  {
+    image: Tourism,
+    description: "Promote Tourism in the Northern Region",
+    color: "#13274F",
+  },
+  {
+    image: Peace,
+    description: "Promote Unity, Peace and Progress in the Northern Region",
+    color: "#0a2351"
+  },
+];
+
+const noccref_color = [
+  "#318CE7",
+  "#6699CC",
+  "#5072A7",
+  "#0039a6",
+  "#13274F",
+  "#0a2351",
+];
+
 const centerImageIndex = Math.floor(images.value.length / 2);
 const hoveredIndex = ref(centerImageIndex || null);
+const hoveredImageIndex = ref(0);
 
 const setHoveredIndex = (index) => {
   hoveredIndex.value = index;
+};
+
+const setHoveredImageIndex = (index) => {
+  hoveredImageIndex.value = index;
 };
 
 const getImageStyles = (index) => {
@@ -236,7 +437,6 @@ const getImageStyles = (index) => {
     width = 240;
   } else {
     zIndex = images.value.length - Math.abs(index - centerIndex);
-
     const distanceFromHovered = Math.abs(index - hoveredIndex.value);
     width = Math.max(240 - distanceFromHovered * 10, 100);
   }
@@ -246,6 +446,20 @@ const getImageStyles = (index) => {
     width: `${width}px`,
     transform: hoveredIndex.value === index ? "scale(1.1)" : "scale(1)",
     position: "relative",
+  };
+};
+
+const getHoveredStyles = (index) => {
+  let width;
+
+  if (index === hoveredImageIndex.value) {
+    width = 300;
+  } else {
+    width = 80;
+  }
+
+  return {
+    width: `${width}px`,
   };
 };
 
@@ -310,12 +524,11 @@ onBeforeUnmount(() => {
 }
 
 .flex-image {
-  width: 80px;
   transition: width 0.3s ease; /* Smooth transition for width */
 }
 
-.flex-image:hover {
-  width: 250px; /* Width on hover */
+.first-image {
+  width: 250px; /* Initial width for the first image */
 }
 
 .slideshow-container {

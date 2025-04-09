@@ -8,7 +8,6 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps } from "vue";
 
 const props = defineProps<{
   src: string;
@@ -16,6 +15,7 @@ const props = defineProps<{
   imgClass?: string;
   [key: string]: any;
 }>();
+
 
 const { src, alt, imgClass, ...otherProps } = props;
 </script>

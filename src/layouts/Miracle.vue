@@ -2,16 +2,16 @@
   <q-layout>
     <q-bar
       dark
-      class="bg-heroBrown h-14 flex flex-row items-center justify-between bar-stu"
+      class="bg-heroBrown h-14 flex flex-row items-center justify-between bar-stu pr-8"
     >
       <div class="flex flex-row gap-x-3 items-center justify-start">
         <q-btn dense round flat icon="menu" size="md" @click="open()" />
 
-        <p class="text-lg sm:text-sm md:text-base">
+        <p class="text-lg sm:text-sm md:text-base font-semibold">
           Northern Cultural & Creative Festival
         </p>
       </div>
-      <nav class="flex flex-row gap-x-3 text-sm sm:hidden md:flex lg:flex">
+      <nav class="flex flex-row gap-x-5  text-sm sm:hidden md:flex lg:flex">
         <RouterLink to="#">Exhibition</RouterLink>
         <RouterLink to="#">Tickets</RouterLink>
         <RouterLink to="#">News</RouterLink>
@@ -69,6 +69,22 @@ const goToDayThree = () => {
   router.push({ path: "/day-three" });
 };
 
+const goToDayFour = () => {
+  router.push({ path: "/day-four" });
+};
+
+const goToDayFive = () => {
+  router.push({ path: "/day-five" });
+};
+
+const goToDaySix = () => {
+  router.push({ path: "/day-six" });
+};
+
+const goToDaySeven = () => {
+  router.push({ path: "/day-seven" });
+};
+
 const goToHome = () => {
   router.push({ path: "/" });
 };
@@ -83,9 +99,10 @@ const sideBarOptions = [
   { name: "Day One", value: "auto_stories", onClick: goToDayOne },
   { name: "Day Two", value: "auto_stories", onClick: goToDayTwo },
   { name: "Day Three", value: "auto_stories", onClick: goToDayThree },
-  { name: "Day Four", value: "auto_stories" },
-  { name: "Day Five", value: "auto_stories" },
-  { name: "Day Six", value: "auto_stories" },
+  { name: "Day Four", value: "auto_stories", onClick: goToDayFour },
+  { name: "Day Five", value: "auto_stories", onClick: goToDayFive },
+  { name: "Day Six", value: "auto_stories", onClick: goToDaySix },
+  { name: "Day Seven", value: "auto_stories", onClick: goToDaySeven },
 ];
 </script>
 

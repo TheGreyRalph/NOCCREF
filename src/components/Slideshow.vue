@@ -1,74 +1,93 @@
 <template>
-  <div class="slideshow-container" ref="container">
+  <div :class="`slideshow-container ${containerClassName}`">
     <div
-      class="slideshow-wrapper"
-      :style="{ transform: `translateX(-${currentIndex * 100}%)` }"
+      :class="`slideshow-track ${trackClassName}`"
+      :style="{ transform: `translateX(${translateX}px)` }"
+      ref="track"
     >
-      <div v-for="(image, index) in images" :key="index" class="slide">
-        <img
-          :src="image"
-          alt="Slideshow Image"
-          class="w-full h-full object-cover"
-        />
+      <div
+        v-for="(item, index) in displayItems"
+        :key="index"
+        :class="`slideshow-item ${itemClassName}`"
+      >
+        <img :src="item" :class="`w-full h-auto block ${imgClass}`" alt="Slideshow Image" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from "vue";
+import DragFour from "../assets/noccref/DSC_0713.jpg";
+import HorseRider from "../assets/noccref/Kaduna_Centenary_IMG_5221.jpg";
+import DancingLady from "../assets/noccref/Kaduna_KADFEST_ 004_ IMG_M9A7433.jpg";
+import NorthLeaders from "../assets/noccref/DSC_0458 (5).jpg";
+import { ref, onMounted, onUnmounted, toRefs } from "vue";
 
-const images = ref([
-  "./src/assets/models.jpg",
-  "./src/assets/tradtional-shirts.jpg",
-  "./src/assets/dancing-women.jpg",
-  "./src/assets/land-tribe.jpg",
-  "/assets/land-view.jpg",
+const props = defineProps([
+  "containerClassName",
+  "trackClassName",
+  "itemClassName",
+  "imgClass",
 ]);
 
-const currentIndex = ref(0);
-let intervalId;
+const {
+  containerClassName,
+  trackClassName,
+  itemClassName,
+  imgClass,
+  ...otherProps
+} = props;
 
-const startSlideshow = () => {
-  intervalId = setInterval(() => {
-    currentIndex.value = (currentIndex.value + 1) % images.value.length;
-  }, 3000); // Slide every 3 seconds
-};
+const items = [DragFour, HorseRider, DancingLady, NorthLeaders];
 
-const stopSlideshow = () => {
-  clearInterval(intervalId);
-};
+const displayItems = [...items, ...items, ...items];
+
+const track = ref(null);
+const translateX = ref(0);
+let animationFrameId;
+
+const slideSpeed = 1; // Adjust this for speed of sliding
+
+function animate() {
+  translateX.value -= slideSpeed;
+  const trackWidth = track.value.scrollWidth / 3; // Divide by 3 to get one full set of images
+
+  // Reset position to create an infinite effect
+  if (Math.abs(translateX.value) >= trackWidth) {
+    translateX.value = 0;
+  }
+
+  animationFrameId = requestAnimationFrame(animate);
+}
 
 onMounted(() => {
-  startSlideshow();
+  animationFrameId = requestAnimationFrame(animate);
 });
 
-onBeforeUnmount(() => {
-  stopSlideshow();
+onUnmounted(() => {
+  cancelAnimationFrame(animationFrameId);
 });
 </script>
 
 <style scoped>
 .slideshow-container {
+  width: 100%;
   overflow: hidden;
-  width: 100%;
-  max-width: 800px; /* Adjust as needed */
-  margin: auto;
-}
-
-.slideshow-wrapper {
   display: flex;
-  transition: transform 1s ease-in-out;
-  width: calc(100% * 5); /* Adjust based on the number of images */
+  justify-content: center;
+  align-items: center;
 }
 
-.slide {
-  flex: 0 0 100%; /* Each slide takes 100% of the container's width */
+.slideshow-track {
+  display: flex;
+  transition: transform 0.1s linear;
+  white-space: nowrap;
 }
 
-img {
-  display: block;
-  width: 100%;
-  height: auto;
+.slideshow-item {
+  flex: 0 0 33.33%; /* Show 3 items in view */
+  box-sizing: border-box;
+  padding: 10px 0;
+  height: 400px
 }
 </style>

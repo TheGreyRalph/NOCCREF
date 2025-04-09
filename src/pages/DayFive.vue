@@ -8,7 +8,7 @@
           class="flex h-full w-full text-white items-center justify-center bg-[#00000071]"
         >
           <div class="flex flex-col gap-y-4">
-            <p class="text-white text-4xl text-center font-dmSerif font-semibold">Opening Ceremony</p>
+            <p class="text-white text-4xl text-center font-dmSerif font-semibold">Games & Food Day</p>
             <p class="text-white">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
               nihil?
@@ -409,7 +409,7 @@ onMounted(() => {
 
 <style lang="scss">
 .hero-entry {
-  background: url("../assets/noccref/dances.jpg") no-repeat center top/cover;
+  background: url("../assets/noccref/Zazzau_ emir's_ Palece _004_IMG_7475.jpg") no-repeat center center/cover;
 }
 
 .swiper {

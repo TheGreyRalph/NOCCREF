@@ -8,7 +8,7 @@
           class="flex h-full w-full text-white items-center justify-center bg-[#00000071]"
         >
           <div class="flex flex-col gap-y-4">
-            <p class="text-white text-4xl text-center !font-dmSerif">Creative Fair</p>
+            <p class="text-white text-4xl text-center font-dmSerif font-semibold">Creatives Fair</p>
             <p class="text-white">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
               nihil?
@@ -32,24 +32,101 @@
       </div>
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
+      <div class="px-20 mt-10 flex flex-col gap-y-7 items-center">
+        <p class="text-sm text-lightGrayDay tracking-wider">
+          COUNTDOWN TO EVENT
+        </p>
+        <div class="flex flex-row gap-x-8 items-center justify-center">
+          <q-card class="my-card w-[120px] h-[100px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p class="text-4xl font-bold text-center">{{ timeLeft.days }}</p>
+              <p class="text-xs text-center text-textGrey">DAYS</p>
+            </q-card-section>
+          </q-card>
+          <q-card class="my-card w-[120px] h-[100px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p class="text-4xl font-bold text-center">{{ timeLeft.hours }}</p>
+              <p class="text-xs text-center text-textGrey">HOURS</p>
+            </q-card-section>
+          </q-card>
+          <q-card class="my-card w-[120px] h-[100px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p class="text-4xl font-bold text-center">
+                {{ timeLeft.minutes }}
+              </p>
+              <p class="text-xs text-center text-textGrey">MINUTES</p>
+            </q-card-section>
+          </q-card>
+          <q-card class="my-card w-[120px] h-[100px]">
+            <q-card-section class="flex flex-col gap-y-1">
+              <p class="text-4xl font-bold text-center">
+                {{ timeLeft.seconds }}
+              </p>
+              <p class="text-xs text-center text-textGrey">SECONDS</p>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <!-- <q-card class="q-pa-md q-mt-lg">
+          <q-card-section class="text-h5">Countdown to Event</q-card-section>
+          <q-card-section class="q-mt-md row justify-around">
+            <q-badge color="primary" :floating="false" class="q-pa-md">
+              <div class="text-h4">{{ timeLeft.days }} {{ " " }}</div>
+              <p>Day(s)</p>
+            </q-badge>
+            <q-badge color="primary" :floating="false" class="q-pa-md">
+              <div class="text-h4">{{ timeLeft.hours }}</div>
+              <p>Hour(s)</p>
+            </q-badge>
+            <q-badge color="primary" :floating="false" class="q-pa-md">
+              <div class="text-h4">{{ timeLeft.minutes }}</div>
+              <p>Minute(s)</p>
+            </q-badge>
+            <q-badge color="primary" :floating="false" class="q-pa-md">
+              <div class="text-h4">{{ timeLeft.seconds }}</div>
+              <p>Second(s)</p>
+            </q-badge>
+          </q-card-section>
+        </q-card> -->
+      </div>
+    </q-intersection>
+    <q-intersection :transition-duration="600" transition="scale" once>
       <div class="px-20 mt-10 flex flex-col gap-y-3">
-        <p class="text-2xl font-semibold">What to expect?</p>
+        <p class="text-2xl font-semibold">Why NOCCREF?</p>
         <div
           class="flex flex-row gap-4 overflow-x-auto flex-nowrap w-[calc(100vw-160px)]"
         >
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="Rmd"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Promotion of Northern Nigerian Heritage
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="HorseRider"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Capacity Building
+              </p>
+            </div>
           </div>
           <div class="zoom-effect !w-1/3 flex-shrink-0">
             <ImageView
@@ -57,69 +134,159 @@
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Networking and Collaboration
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="Rmd"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Economic Empowerment
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="HorseRider"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Increased Visibility
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="DancingLady"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Increased Awareness
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="Rmd"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Boost in Tourism
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="HorseRider"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Improved perception
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="DancingLady"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Increased Collaborations
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="Rmd"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Greater Appreciation
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="HorseRider"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Strengthened Partnerships
+              </p>
+            </div>
           </div>
-          <div class="zoom-effect !w-1/3 flex-shrink-0">
+          <div class="zoom-effect !w-1/3 flex-shrink-0 relative">
             <ImageView
               :src="DancingLady"
               alt="highlight-imgs"
               class="w-full h-[200px] object-cover rounded-lg"
             />
+            <div
+              class="absolute top-0 left-0 w-full h-full flex flex-col justify-end p-3"
+            >
+              <p
+                class="font-dmSerif text-lg text-heroBrown font-semibold w-[80%]"
+              >
+                Creating of a model
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +321,7 @@
     <q-intersection :transition-duration="600" transition="scale" once>
       <div class="px-20 mt-10">
         <q-timeline color="secondary" layout="comfortable" side="right">
-          <q-timeline-entry heading body="Timeline heading" />
+          <q-timeline-entry heading body="Events" />
           <q-timeline-entry
             title="Professional film-training by Nollywood/Hollywood giants"
             subtitle="February 22, 1986"
@@ -178,31 +345,8 @@
         </q-timeline>
       </div>
     </q-intersection>
-    <q-intersection :transition-duration="600" transition="scale" once>
-      <div class="px-20">
-        <q-card class="q-pa-md q-mt-lg">
-          <q-card-section class="text-h5">Countdown to Event</q-card-section>
-          <q-card-section class="q-mt-md row justify-around">
-            <q-badge color="primary" :floating="false" class="q-pa-md">
-              <div class="text-h4">{{ timeLeft.days }} {{ " " }}</div>
-              <p>Day(s)</p>
-            </q-badge>
-            <q-badge color="primary" :floating="false" class="q-pa-md">
-              <div class="text-h4">{{ timeLeft.hours }}</div>
-              <p>Hour(s)</p>
-            </q-badge>
-            <q-badge color="primary" :floating="false" class="q-pa-md">
-              <div class="text-h4">{{ timeLeft.minutes }}</div>
-              <p>Minute(s)</p>
-            </q-badge>
-            <q-badge color="primary" :floating="false" class="q-pa-md">
-              <div class="text-h4">{{ timeLeft.seconds }}</div>
-              <p>Second(s)</p>
-            </q-badge>
-          </q-card-section>
-        </q-card>
-      </div>
-    </q-intersection>
+
+    <SlideShow imgClass="!w-full !h-full !object-cover rounded-lg" trackClassName="gap-x-4"/>
   </div>
 </template>
 
@@ -217,6 +361,7 @@ import Rmd from "../assets/noccref/istockphoto-537311780-612x612.jpg";
 import HorseRider from "../assets/noccref/Kaduna_Centenary_IMG_5221.jpg";
 import DancingLady from "../assets/noccref/Kaduna_KADFEST_ 004_ IMG_M9A7433.jpg";
 import NorthLeaders from "../assets/noccref/DSC_0458 (5).jpg";
+import SlideShow from "../components/Slideshow.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper/modules";
 
@@ -264,8 +409,7 @@ onMounted(() => {
 
 <style lang="scss">
 .hero-entry {
-  background: url("../assets/noccref/APNBWUP4A5HJHPUOC7ZYWSQHI4.jpg") no-repeat top
-    center/cover;
+  background: url("../assets/noccref/Igabi_Maraba_Pottery_02_IMG_0735.jpg") no-repeat center center/cover;
 }
 
 .swiper {
