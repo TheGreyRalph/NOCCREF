@@ -101,12 +101,15 @@
       once
       class="mt-12"
     >
-      <p class="text-4xl font-semibold w-full text-center font-dmSerif mb-5">Objectives</p>
+      <p class="text-4xl font-semibold w-full text-center font-dmSerif mb-5">
+        Objectives
+      </p>
       <div class="wide-container h-[500px] px-12">
         <div
           v-for="(image, index) in noccref_obj"
           :key="index"
           @mouseenter="setHoveredImageIndex(index)"
+          @mouseleave="resetHoveredImageIndex"
           :style="getHoveredStyles(index)"
           class="flex-image relative zoom-effect"
         >
@@ -121,14 +124,14 @@
             ]"
           >
             <p
-              v-show="getHoveredStyles(index).width === '300px'"
+              v-show="showDesc && index === hoveredImageIndex"
               class="text-white text-lg font-semibold"
             >
               {{ image.description }}
             </p>
             <p
               :class="[
-                'flex items-center justify-center rounded-full text-white border border-solid border-white w-10 h-10 font-semibold bg-[#00000071]',
+                'flex items-center justify-center rounded-full text-white border border-solid border-[#ffffff71] w-10 h-10 font-semibold',
               ]"
             >
               {{ index + 1 }}
@@ -139,7 +142,9 @@
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
       <div class="flex justify-center mt-10">
-        <p class="text-4xl font-semibold w-full text-center font-dmSerif">Continue your Journey</p>
+        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
+          Continue your Journey
+        </p>
         <div class="container mx-auto flex justify-center items-center my-12">
           <div
             v-for="(image, index) in images"
@@ -161,7 +166,9 @@
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
       <div class="px-12 flex flex-col gap-y-2 mt-8">
-        <p class="text-4xl font-semibold w-full text-center font-dmSerif">What's new?</p>
+        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
+          What's new?
+        </p>
         <p class="text-center text-sm">
           Fostering sector specific festivals and investment opportunities
         </p>
@@ -333,14 +340,16 @@
       once
       class="mt-10"
     >
-      <SlideShow imgClass="!w-full !h-full !object-cover" />
     </q-intersection>
+    <Footer />
   </div>
 </template>
+<!-- <SlideShow imgClass="!w-full !h-full !object-cover" /> -->
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import ImageView from "../components/ImageView.vue";
+import Footer from "../components/Footer.vue";
 import Slideshow from "../components/Slideshow.vue";
 import Drummer from "../assets/african-drummer.jpg";
 import Models from "../assets/models.jpg";
@@ -369,9 +378,6 @@ const images = ref([
   // "/assets/models.jpg",
 ]);
 
-const slide = ref(1);
-const autoplay = ref(true);
-
 const noccref_obj = [
   {
     image: CulturalExchange,
@@ -392,7 +398,7 @@ const noccref_obj = [
     image: Skills,
     description:
       "Empower Northern Nigerian Youth with Skills and Opportunities",
-      color: "#0039a6"
+    color: "#0039a6",
   },
   {
     image: Tourism,
@@ -402,7 +408,7 @@ const noccref_obj = [
   {
     image: Peace,
     description: "Promote Unity, Peace and Progress in the Northern Region",
-    color: "#0a2351"
+    color: "#0a2351",
   },
 ];
 
@@ -416,15 +422,34 @@ const noccref_color = [
 ];
 
 const centerImageIndex = Math.floor(images.value.length / 2);
+
+const slide = ref(1);
+const autoplay = ref(true);
 const hoveredIndex = ref(centerImageIndex || null);
 const hoveredImageIndex = ref(0);
+const currentIndex = ref(0);
+const container = ref(null);
+const showDesc = ref(true);
+const descTimeout = ref(null);
+
+let intervalId;
 
 const setHoveredIndex = (index) => {
   hoveredIndex.value = index;
 };
 
 const setHoveredImageIndex = (index) => {
+  clearTimeout(descTimeout.value);
   hoveredImageIndex.value = index;
+  descTimeout.value = setTimeout(() => {
+    showDesc.value = true;
+  }, 900);
+};
+
+const resetHoveredImageIndex = () => {
+  hoveredImageIndex.value = null;
+  showDesc.value = false;
+  clearTimeout(descTimeout.value);
 };
 
 const getImageStyles = (index) => {
@@ -460,12 +485,9 @@ const getHoveredStyles = (index) => {
 
   return {
     width: `${width}px`,
+    transitionDuration: "1000ms",
   };
 };
-
-const currentIndex = ref(0);
-const container = ref(null);
-let intervalId;
 
 const startSlideshow = () => {
   intervalId = setInterval(() => {

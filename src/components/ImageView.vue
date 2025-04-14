@@ -8,14 +8,12 @@
 </template>
 
 <script setup lang="ts">
-
 const props = defineProps<{
   src: string;
   alt?: string;
   imgClass?: string;
   [key: string]: any;
 }>();
-
 
 const { src, alt, imgClass, ...otherProps } = props;
 </script>
