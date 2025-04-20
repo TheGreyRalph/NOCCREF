@@ -7,11 +7,16 @@
         <div
           class="flex h-full w-full text-white items-center justify-center bg-[#00000071]"
         >
-          <div class="flex flex-col gap-y-4">
-            <p class="text-white text-4xl text-center font-dmSerif font-semibold">Cultural Exchange and Awards</p>
-            <p class="text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
-              nihil?
+          <div class="flex flex-col gap-y-4 items-center justify-center">
+            <p
+              class="text-white text-4xl text-center font-dmSerif font-semibold"
+            >
+              Cultural Exchange and Awards
+            </p>
+            <p class="text-white w-[55%] text-center">
+              The event includes an awards ceremony to recognize individuals and
+              organizations that have made significant contributions to the
+              promotion of cultural diversity and understanding.
             </p>
             <div
               class="flex flex-row gap-x-5 flex-1 items-center justify-center"
@@ -29,6 +34,14 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="bg-heroBrown px-36 py-5">
+        <p class="text-xs text-center">
+          The main venues for the event include the
+          <strong>Murtala Mohammed square</strong> in Kaduna which will host the
+          grand durbar ceremony, and Fifth Chukker as well as other locations
+          across the region, which will host different activities and events.
+        </p>
       </div>
     </q-intersection>
     <q-intersection :transition-duration="600" transition="scale" once>
@@ -297,8 +310,9 @@
         <div class="flex flex-col gap-y-3 w-[43%]">
           <p>Explore the northern culture</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-            accusamus et eos nesciunt iste illo!
+            Harnessing the power of creativity, the festival seeks to promote
+            inclusivity, inspire innovation, and ignite a sense of pride in
+            Northern Nigerian heritage.
           </p>
           <button class="py-3 px-4 rounded-md border border-solid border-black">
             Enroll Now
@@ -323,30 +337,26 @@
         <q-timeline color="secondary" layout="comfortable" side="right">
           <q-timeline-entry heading body="Events" />
           <q-timeline-entry
-            title="Professional film-training by Nollywood/Hollywood giants"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title="Cultural exchange program with other neighboring African countries"
+            subtitle="May 17, 2025"
           />
           <q-timeline-entry
-            title="Professional photography training by industry experts"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title=" Showcase of different cultural practices and performance."
+            subtitle="May 17, 2025"
           />
           <q-timeline-entry
-            title="Crafts and painting training by industry experts"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title="Panel discussions on cultural integration and cooperation"
+            subtitle="May 17, 2025"
           />
           <q-timeline-entry
-            title="Training on 'Understanding the business of the creative industry' "
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title="Drama and award night"
+            subtitle="May 17, 2025"
           />
         </q-timeline>
       </div>
     </q-intersection>
 
-    <SlideShow imgClass="!w-full !h-full !object-cover rounded-lg" trackClassName="gap-x-4"/>
+    <Footer />
   </div>
 </template>
 
@@ -364,6 +374,7 @@ import NorthLeaders from "../assets/noccref/DSC_0458 (5).jpg";
 import SlideShow from "../components/Slideshow.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper/modules";
+import Footer from "../components/Footer.vue";
 
 import "swiper/css";
 
@@ -376,7 +387,7 @@ const modules = ref([EffectCards]);
 const slideShowModules = ref([Autoplay, Pagination, Navigation]);
 const carouselImages = ref([DragOne, DragTwo, DragThree, DragFour]);
 
-const targetDate = ref(new Date("2024-12-31T23:59:59").getTime());
+const targetDate = ref(new Date("2025-05-12T23:59:59").getTime());
 const timeLeft = ref({
   days: 0,
   hours: 0,
@@ -409,7 +420,8 @@ onMounted(() => {
 
 <style lang="scss">
 .hero-entry {
-  background: url("../assets/noccref/Cultural Exchange.jpg") no-repeat center center/cover;
+  background: url("../assets/noccref/Cultural Exchange.jpg") no-repeat center
+    center/cover;
 }
 
 .swiper {

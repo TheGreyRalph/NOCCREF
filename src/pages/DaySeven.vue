@@ -7,11 +7,21 @@
         <div
           class="flex h-full w-full text-white items-center justify-center bg-[#00000071]"
         >
-          <div class="flex flex-col gap-y-4">
-            <p class="text-white text-4xl text-center font-dmSerif font-semibold">Grand Durbar Ceremony</p>
-            <p class="text-white">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
-              nihil?
+          <div class="flex flex-col gap-y-4 items-center justify-center">
+            <p
+              class="text-white text-4xl text-center font-dmSerif font-semibold"
+            >
+              Grand Durbar Ceremony
+            </p>
+            <p class="text-white w-[55%] text-center">
+              Grand Durbar is a traditional festival celebrated in Northern
+              Nigeria to mark the end NOCCREF. It features a grand parade of
+              traditional dancers, showcasing the rich cultural heritage of the
+              region.
+              <br />
+              The event is attended by dignitaries and traditional rulers
+              creating a vibrant atmosphere filled with music, dance, and
+              colorful displays.
             </p>
             <div
               class="flex flex-row gap-x-5 flex-1 items-center justify-center"
@@ -297,8 +307,9 @@
         <div class="flex flex-col gap-y-3 w-[43%]">
           <p>Explore the northern culture</p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-            accusamus et eos nesciunt iste illo!
+            Harnessing the power of creativity, the festival seeks to promote
+            inclusivity, inspire innovation, and ignite a sense of pride in
+            Northern Nigerian heritage.
           </p>
           <button class="py-3 px-4 rounded-md border border-solid border-black">
             Enroll Now
@@ -323,30 +334,26 @@
         <q-timeline color="secondary" layout="comfortable" side="right">
           <q-timeline-entry heading body="Events" />
           <q-timeline-entry
-            title="Professional film-training by Nollywood/Hollywood giants"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title=" Parade of the 19 northern state emirates with their horses and horseback contigents."
+            subtitle="May 18, 2025"
           />
           <q-timeline-entry
-            title="Professional photography training by industry experts"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title=" Showcase of northern Nigerian heritage and culture (Arts & Poetry)"
+            subtitle="May 18, 2025"
           />
           <q-timeline-entry
-            title="Crafts and painting training by industry experts"
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title=" Closing ceremony and award presentation to winners of various competitions"
+            subtitle="May 18, 2025"
           />
           <q-timeline-entry
-            title="Training on 'Understanding the business of the creative industry' "
-            subtitle="February 22, 1986"
-            body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat."
+            title="Gala night"
+            subtitle="May 18, 2025"
           />
         </q-timeline>
       </div>
     </q-intersection>
 
-    <SlideShow imgClass="!w-full !h-full !object-cover rounded-lg" trackClassName="gap-x-4"/>
+    <Footer />
   </div>
 </template>
 
@@ -364,6 +371,7 @@ import NorthLeaders from "../assets/noccref/DSC_0458 (5).jpg";
 import SlideShow from "../components/Slideshow.vue";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { EffectCards, Autoplay, Pagination, Navigation } from "swiper/modules";
+import Footer from "../components/Footer.vue";
 
 import "swiper/css";
 
@@ -376,7 +384,7 @@ const modules = ref([EffectCards]);
 const slideShowModules = ref([Autoplay, Pagination, Navigation]);
 const carouselImages = ref([DragOne, DragTwo, DragThree, DragFour]);
 
-const targetDate = ref(new Date("2024-12-31T23:59:59").getTime());
+const targetDate = ref(new Date("2025-05-12T23:59:59").getTime());
 const timeLeft = ref({
   days: 0,
   hours: 0,
@@ -409,7 +417,8 @@ onMounted(() => {
 
 <style lang="scss">
 .hero-entry {
-  background: url("../assets/noccref/WhatsApp Image 2024-09-05 at 23.25.55(1).jpeg") no-repeat center center/cover;
+  background: url("../assets/noccref/WhatsApp Image 2024-09-05 at 23.25.55(1).jpeg")
+    no-repeat center center/cover;
 }
 
 .swiper {

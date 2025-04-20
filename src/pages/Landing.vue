@@ -18,9 +18,7 @@
           </svg>
         </div>
         <div class="flex-1 flex flex-col gap-y-2">
-          <p
-            class="text-4xl font-semibold sm:text-sm minLg:text-4xl font-dmSerif"
-          >
+          <p class="text-4xl font-semibold sm:text-sm minLg:text-4xl font-lora">
             Diverse cultural heritage of Nothern Nigeria.
           </p>
           <p class="w-[70%] sm:text-sm md:w-[90%] minLg:block">
@@ -35,27 +33,34 @@
         />
       </div>
     </q-intersection>
+
     <q-intersection :transition-duration="600" transition="scale" once>
       <div
         class="row sm:column md:column minLg:row px-16 py-5 sm:py-12 sm:bg-heroBrown lg:bg-transparent"
       >
-        <div class="col flex flex-col gap-y-5">
-          <p class="text-sm tracking-wide">
-            <q-icon class="text-textGrey" name="calendar_today" />
-            Executive summary
-          </p>
-          <p class="text-sm text-textGrey w-[80%] xs:w-full minLg:w-[60%]">
-            The Northern Cultural and Creative Festival (NOCCREF) is a week-long
-            cultural and creative annual event that aims to showcase and promote
-            the rich cultural heritage across the Northern part of Nigeria.
-          </p>
-          <p class="text-sm text-textGrey w-[80%] sm:w-full minLg:w-[60%]">
-            The event is the brainchild of Rabitz Studios Limited, a Creative
-            Media Company based in Kaduna, Northern Nigeria in collabora-tion
-            with the Zazzau Emirate. Kaduna is the pilot state.
-          </p>
-          <button class="text-textBlue text-left">Learn more</button>
-        </div>
+        <transition
+          appear
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+        >
+          <div class="col flex flex-col gap-y-5">
+            <p class="text-sm tracking-wide">
+              <q-icon class="text-textGrey" name="calendar_today" />
+              Executive summary
+            </p>
+            <p class="text-sm text-textGrey w-[80%] xs:w-full minLg:w-[60%]">
+              The Northern Cultural and Creative Festival (NOCCREF) is a
+              week-long cultural and creative annual event that aims to showcase
+              and promote the rich cultural heritage across the Northern part of
+              Nigeria.
+            </p>
+            <p class="text-sm text-textGrey w-[80%] sm:w-full minLg:w-[60%]">
+              The event is the brainchild of Rabitz Studios Limited, a Creative
+              Media Company based in Kaduna, Northern Nigeria in collabora-tion
+              with the Zazzau Emirate. Kaduna is the pilot state.
+            </p>
+          </div>
+        </transition>
         <div class="col q-pa-md sm:hidden minLg:block">
           <div class="column example-container">
             <div class="container mx-auto p-4">
@@ -95,13 +100,81 @@
         </div>
       </div>
     </q-intersection>
+
+    <q-intersection
+      :transition-duration="600"
+      transition="scale"
+      once
+      class="mt-10 px-12 h-full py-5"
+    >
+      <div class="flex flex-col gap-y-3">
+        <transition
+          bounce
+          enter-active-class="animated fadeIn"
+          leave-active-class="animated fadeOut"
+        >
+          <p class="text-4xl font-semibold w-full text-center font-lora">
+            About NOCCREF
+          </p>
+        </transition>
+        <div class="flex flex-row gap-x-7 items-center">
+          <div class="flex-1 flex flex-col gap-y-5">
+            <p class="text-lg font-lora font-semibold text-festival-navy">
+              Introduction
+            </p>
+            <p class="text-xs text-textGrey text-justify leading-6">
+              The Northern Cultural and Creative Festival is poised to be the
+              biggest creative and cultural event ever witnessed in Africa, with
+              the aim of strengthening the Northern cultural and creative
+              ecosystem by providing a platform for the promotion and export of
+              Northern Nigerian heritage. The festival features a week-long
+              celebration of creativity, arts, and culture, with various
+              activities and events that highlight the rich cultural heritage of
+              the Northern region of Nigeria.
+              <br />
+              <br />
+              The festival is inspired by the need to preserve, promote, and
+              showcase the diverse and rich cultural heritage of Northern
+              Nigeria. Over the years, the Northern region of Nigeria has been
+              blessed with a rich cultural heritage that is steeped in history
+              and tradition. From the ancient empires of Kanem-Bornu, Sokoto
+              Caliphate, the Hausa Kingdoms, to the remarkable Nok culture.
+              <br />
+              <br />
+            </p>
+          </div>
+          <div class="flex-1 md:hidden lg:block">
+            <div class="relative w-full min-h-[340px]">
+              <ImageView
+                :src="AboutImage"
+                alt="masonry-lay"
+                class="absolute inset-0 w-full h-full object-cover rounded-md shadow"
+              />
+              <p
+                class="absolute bottom-0 left-0 text-heroBrown text-sm font-semibold p-4 about-gradient"
+              >
+                The Northern Cultural and Creative Festival provides a unique
+                opportunity to showcase and celebrate the diversity and richness
+                of Northern Nigerian culture to the rest of the world. The
+                annual festival is an avenue to promote tourism, generate
+                revenue, and create a platform for cultural exchange and
+                diplomacy. It is an event that celebrates the past, present, and
+                future of the Northern region, and seeks to inspire a new
+                generation of creatives and cultural entrepreneurs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </q-intersection>
+
     <q-intersection
       :transition-duration="600"
       transition="scale"
       once
       class="mt-12"
     >
-      <p class="text-4xl font-semibold w-full text-center font-dmSerif mb-5">
+      <p class="text-4xl font-semibold w-full text-center font-lora mb-5">
         Objectives
       </p>
       <div class="wide-container h-[500px] px-12">
@@ -120,12 +193,12 @@
           />
           <div
             :class="[
-              'absolute top-0 left-0 flex justify-end flex-col gap-y-3 h-full w-full p-3 z-[9999]',
+              'absolute bottom-0 left-0 flex justify-end flex-col gap-y-3 h-[30%] w-full p-3 z-[9999]',
             ]"
           >
             <p
               v-show="showDesc && index === hoveredImageIndex"
-              class="text-white text-lg font-semibold"
+              class="text-white text-sm font-semibold"
             >
               {{ image.description }}
             </p>
@@ -140,9 +213,10 @@
         </div>
       </div>
     </q-intersection>
+
     <q-intersection :transition-duration="600" transition="scale" once>
       <div class="flex justify-center mt-10">
-        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
+        <p class="text-4xl font-semibold w-full text-center font-lora">
           Continue your Journey
         </p>
         <div class="container mx-auto flex justify-center items-center my-12">
@@ -164,9 +238,10 @@
         </div>
       </div>
     </q-intersection>
+
     <q-intersection :transition-duration="600" transition="scale" once>
-      <div class="px-12 flex flex-col gap-y-2 mt-8">
-        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
+      <div class="mb-10 px-12 flex flex-col gap-y-2 mt-8">
+        <p class="text-4xl font-semibold w-full text-center font-lora">
           What's new?
         </p>
         <p class="text-center text-sm">
@@ -186,13 +261,14 @@
                     class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
                   >
                     <p
-                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                      class="text-2xl text-heroBrown font-semibold z-[9999] font-lora"
                     >
                       Fashion Festival
                     </p>
                   </div>
                 </div>
               </div>
+
               <div class="w-[30%] h-[210px]">
                 <div class="zoom-effect relative">
                   <ImageView
@@ -204,7 +280,7 @@
                     class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
                   >
                     <p
-                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                      class="text-2xl text-heroBrown font-semibold z-[9999] font-lora"
                     >
                       Film Festival
                     </p>
@@ -224,7 +300,7 @@
                     class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
                   >
                     <p
-                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                      class="text-2xl text-heroBrown font-semibold z-[9999] font-lora"
                     >
                       Music Festival
                     </p>
@@ -242,7 +318,7 @@
                     class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
                   >
                     <p
-                      class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                      class="text-2xl text-heroBrown font-semibold z-[9999] font-lora"
                     >
                       Food/Fusion Festival
                     </p>
@@ -262,7 +338,7 @@
                 class="absolute w-full h-full top-0 left-0 p-4 flex items-end"
               >
                 <p
-                  class="text-2xl text-white font-semibold z-[9999] font-dmSerif"
+                  class="text-2xl text-heroBrown font-semibold z-[9999] font-lora"
                 >
                   Sports Festival
                 </p>
@@ -271,75 +347,6 @@
           </div>
         </div>
       </div>
-    </q-intersection>
-
-    <q-intersection
-      :transition-duration="600"
-      transition="scale"
-      once
-      class="mt-10 px-12 h-full bg-heroBrown py-5"
-    >
-      <div class="flex flex-col gap-y-3">
-        <p class="text-4xl font-semibold w-full text-center font-dmSerif">
-          About
-        </p>
-        <div class="flex flex-row gap-x-7 items-center justify-center">
-          <q-card class="my-card w-[25%] h-[380px]">
-            <q-card-section class="flex flex-col gap-y-1">
-              <p
-                class="text-xs text-textGrey text-justify tracking-wider leading-6"
-              >
-                The Northern Cultural and Creative Festival is poised to be the
-                biggest creative and cultural event ever witnessed in Africa,
-                with the aim of strengthening the Northern cultural and creative
-                ecosystem by providing a platform for the promotion and export
-                of Northern Nigerian heritage. The festival features a week-long
-                celebration of creativity, arts, and culture, with various
-                activities and events that highlight the rich cultural heritage
-                of the Northern region of Nigeria.
-              </p>
-            </q-card-section>
-          </q-card>
-          <q-card class="my-card w-[25%] h-[380px]">
-            <q-card-section class="flex flex-col gap-y-1">
-              <p
-                class="text-xs text-textGrey text-justify tracking-wider leading-6"
-              >
-                The festival is inspired by the need to preserve, promote, and
-                showcase the diverse and rich cultural heritage of Northern
-                Nigeria. Over the years, the Northern region of Nigeria has been
-                blessed with a rich cultural heritage that is steeped in history
-                and tradition. From the ancient empires of Kanem-Bornu, Sokoto
-                Caliphate, the Hausa Kingdoms, to the remarkable Nok culture.
-              </p>
-            </q-card-section>
-          </q-card>
-          <q-card class="my-card w-[25%] h-[380px]">
-            <q-card-section class="flex flex-col gap-y-1">
-              <p
-                class="text-xs text-textGrey text-justify tracking-wider leading-6"
-              >
-                The Northern Cultural and Creative Festival provides a unique
-                opportunity showcase and celebrate the diversity and richness of
-                Northern Nigerian culture to the rest of the world. The annual
-                festival is an avenue to promote tourism, generate revenue, and
-                create a platform for cultural exchange and diplomacy. It is an
-                event that celebrates the past, present and future of Northern
-                region, and seeks to inspire new generation of creatives and
-                cultural entrepreneurs.
-              </p>
-            </q-card-section>
-          </q-card>
-        </div>
-      </div>
-    </q-intersection>
-
-    <q-intersection
-      :transition-duration="600"
-      transition="scale"
-      once
-      class="mt-10"
-    >
     </q-intersection>
     <Footer />
   </div>
@@ -369,6 +376,7 @@ import DancingWomen from "../assets/dancing-women.jpg";
 import LandTribe from "../assets/land-tribe.jpg";
 import LandView from "../assets/land-view.jpg";
 import SlideShow from "../components/Slideshow.vue";
+import AboutImage from "../assets/noccref/PHOTO-2024-10-13-14-52-26.jpg";
 
 const images = ref([
   "./src/assets/models.jpg",
@@ -412,13 +420,27 @@ const noccref_obj = [
   },
 ];
 
-const noccref_color = [
-  "#318CE7",
-  "#6699CC",
-  "#5072A7",
-  "#0039a6",
-  "#13274F",
-  "#0a2351",
+const noccref_activities = [
+  {
+    image: FoodFestival,
+    description: "Food Festival",
+  },
+  {
+    image: FilmFestival,
+    description: "Film Festival",
+  },
+  {
+    image: MusicFestival,
+    description: "Music Festival",
+  },
+  {
+    image: FashionFestival,
+    description: "Fashion Festival",
+  },
+  {
+    image: SportFestival,
+    description: "Sport Festival",
+  },
 ];
 
 const centerImageIndex = Math.floor(images.value.length / 2);
@@ -443,7 +465,7 @@ const setHoveredImageIndex = (index) => {
   hoveredImageIndex.value = index;
   descTimeout.value = setTimeout(() => {
     showDesc.value = true;
-  }, 900);
+  }, 400);
 };
 
 const resetHoveredImageIndex = () => {
@@ -485,7 +507,7 @@ const getHoveredStyles = (index) => {
 
   return {
     width: `${width}px`,
-    transitionDuration: "1000ms",
+    transitionDuration: "500ms",
   };
 };
 
@@ -561,5 +583,10 @@ onBeforeUnmount(() => {
 .slideshow-wrapper {
   display: flex;
   transition: transform 1s ease-in-out;
+}
+
+.about-gradient {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent);
+  border-radius: 0.5rem;
 }
 </style>

@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       poppins: ['Poppins", sans-serif'],
       dmSerif: ["dm-serif"],
+      lora: ["Lora", "serif"],
     },
     screens: {
       sm: "200px",
